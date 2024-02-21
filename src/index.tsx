@@ -1,15 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import '@mantine/core/styles.css';
 import App from './App';
+import AppRouter from './AppRouter';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import { MantineProvider, createTheme } from '@mantine/core';
+const theme = createTheme({
+    fontFamily:  "Kanit, sans-serif",
+})
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <MantineProvider theme={theme}>
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
+    </MantineProvider>
   </React.StrictMode>
 );
 
